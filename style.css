@@ -15,6 +15,24 @@ body {
     flex-direction: column;
 }
 
+/* Light Theme Variables */
+body.light-theme {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f6f8fa;
+    --bg-card: #ffffff;
+    --text-primary: #24292f;
+    --text-secondary: #57606a;
+    --border-color: #d0d7de;
+    --bg-nav: #f6f8fa;
+    --bg-footer: #f6f8fa;
+}
+
+body {
+    background-color: var(--bg-primary, #0d1117);
+    color: var(--text-primary, #c9d1d9);
+    transition: background-color 0.3s, color 0.3s;
+}
+
 /* Header */
 header {
     background-color: #161b22;
