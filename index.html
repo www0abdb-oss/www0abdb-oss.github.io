@@ -85,6 +85,23 @@
 
     <main>
         <section id="mods">
+            <input type="text" id="mod-search" placeholder="Search mods..." style="width: 100%; max-width: 400px; padding: 10px 16px; background-color: #161b22; border: 1px solid #30363d; color: #c9d1d9; font-size: 16px; margin-bottom: 20px;">
+
+<script>
+    document.getElementById('mod-search').addEventListener('keyup', function() {
+        const query = this.value.toLowerCase();
+        const cards = document.querySelectorAll('.mod-card');
+        cards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const desc = card.querySelector('p').textContent.toLowerCase();
+            if (title.includes(query) || desc.includes(query)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+</script>
             <h2>Available Mods</h2>
             <p class="section-description">Browse our collection of open-source Minecraft Fabric mods designed to enhance your gaming experience.</p>
             <div class="mods-grid">
