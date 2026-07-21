@@ -1,0 +1,404 @@
+/* Reset and Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    background-color: #161b22;
+    border-bottom: 2px solid #30363d;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.header-content h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #f0f6fc;
+    letter-spacing: 2px;
+}
+
+.header-content .subtitle {
+    color: #8b949e;
+    font-size: 18px;
+    margin-top: 5px;
+    font-weight: 300;
+}
+
+/* Navigation */
+nav {
+    background-color: #161b22;
+    border-bottom: 1px solid #30363d;
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 0;
+}
+
+nav ul li a {
+    color: #8b949e;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 4px;
+    transition: color 0.2s;
+}
+
+nav ul li a:hover {
+    color: #f0f6fc;
+}
+
+nav ul li a.active {
+    color: #f0f6fc;
+    border-bottom: 2px solid #f0f6fc;
+    padding-bottom: 6px;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    width: 100%;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+section h2 {
+    font-size: 28px;
+    color: #f0f6fc;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Mods Grid */
+.mods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.mod-card {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    transition: background-color 0.2s;
+}
+
+.mod-card:hover {
+    background-color: #1c2128;
+}
+
+.mod-card a {
+    display: block;
+    padding: 24px;
+    text-decoration: none;
+    color: #c9d1d9;
+}
+
+.mod-card .mod-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #21262d;
+    border: 1px solid #30363d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin-bottom: 16px;
+}
+
+.mod-card h3 {
+    color: #f0f6fc;
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.mod-card p {
+    color: #8b949e;
+    font-size: 14px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.mod-card .mod-version {
+    display: inline-block;
+    background-color: #21262d;
+    color: #8b949e;
+    padding: 2px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 8px;
+}
+
+.mod-card .mod-status {
+    display: inline-block;
+    padding: 2px 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.mod-card .mod-status.available {
+    background-color: #238636;
+    color: #ffffff;
+}
+
+.mod-card .mod-status.coming {
+    background-color: #1f6feb;
+    color: #ffffff;
+}
+
+/* About Section */
+#about {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    padding: 32px;
+}
+
+#about p {
+    color: #8b949e;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+#about p:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer */
+footer {
+    background-color: #161b22;
+    border-top: 1px solid #30363d;
+    padding: 24px 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-content p {
+    color: #8b949e;
+    font-size: 14px;
+}
+
+.footer-content p:first-child {
+    margin-bottom: 4px;
+}
+
+/* ============================================ */
+/* Mod Detail Page Styles */
+/* ============================================ */
+
+.back-link {
+    margin-bottom: 24px;
+}
+
+.back-link a {
+    color: #8b949e;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.back-link a:hover {
+    color: #f0f6fc;
+}
+
+.mod-header {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #30363d;
+}
+
+.mod-icon-large {
+    width: 80px;
+    height: 80px;
+    background-color: #21262d;
+    border: 1px solid #30363d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: #f0f6fc;
+    flex-shrink: 0;
+}
+
+.mod-info {
+    flex: 1;
+}
+
+.mod-info h1 {
+    font-size: 32px;
+    color: #f0f6fc;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.mod-info .mod-tagline {
+    font-size: 18px;
+    color: #8b949e;
+    margin-bottom: 12px;
+}
+
+.mod-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.mod-meta .meta-item {
+    font-size: 14px;
+    color: #8b949e;
+}
+
+.mod-meta .meta-item strong {
+    color: #c9d1d9;
+}
+
+.mod-meta .meta-item .available {
+    color: #3fb950;
+}
+
+.mod-content h2 {
+    font-size: 22px;
+    color: #f0f6fc;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.mod-content h2:first-of-type {
+    margin-top: 0;
+}
+
+.mod-content p {
+    color: #c9d1d9;
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.mod-content ul,
+.mod-content ol {
+    color: #c9d1d9;
+    padding-left: 24px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.mod-content li {
+    margin-bottom: 4px;
+}
+
+.download-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.download-links a {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.download-links a:hover {
+    opacity: 0.85;
+}
+
+.download-btn {
+    background-color: #238636;
+    color: #ffffff;
+    border: none;
+}
+
+.github-btn {
+    background-color: #21262d;
+    color: #f0f6fc;
+    border: 1px solid #30363d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .mod-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .mod-meta {
+        justify-content: center;
+    }
+
+    .mods-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .header-content h1 {
+        font-size: 30px;
+    }
+
+    .download-links {
+        justify-content: center;
+    }
+
+    #about {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 20px 12px;
+    }
+
+    .mod-card a {
+        padding: 16px;
+    }
+
+    .mod-info h1 {
+        font-size: 26px;
+    }
+
+    .mod-icon-large {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+}
