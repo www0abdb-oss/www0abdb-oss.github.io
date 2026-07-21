@@ -148,5 +148,20 @@
             <p>Licensed under Apache-2.0 | <a href="https://github.com/www0abdb-oss">GitHub</a></p>
         </div>
     </footer>
+    <button id="back-to-top" style="display: none; position: fixed; bottom: 30px; right: 30px; background-color: #238636; color: white; border: none; padding: 12px 16px; cursor: pointer; font-size: 18px;">↑ Top</button>
+
+<script>
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.style.display = 'block';
+        } else {
+            backToTop.style.display = 'none';
+        }
+    });
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
 </body>
 </html>
