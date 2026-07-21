@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>www0abdb-oss - Official Minecraft Mods Repository | PVP & Fabric Mods</title>
+    <title>www0abdb-oss - Official Minecraft Mods Repository</title>
     <meta name="title" content="www0abdb-oss - Official Minecraft Mods Repository">
     <meta name="description" content="www0abdb-oss is an open-source organization providing high-quality Minecraft Fabric mods including pvp-teloot, performance optimizations, and gameplay enhancements. Download the latest mods for Minecraft.">
     <meta name="keywords" content="minecraft mods, fabric mods, pvp mods, minecraft pvp, pvp-teloot, minecraft fabric, open source mods, www0abdb-oss, minecraft optimization">
@@ -14,6 +14,10 @@
     <meta name="author" content="www0abdb-oss">
     <meta name="copyright" content="www0abdb-oss">
     <link rel="canonical" href="https://www0abdb-oss.github.io/">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -80,36 +84,43 @@
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="#mods">Mods</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#contributors">Contributors</a></li>
         </ul>
     </nav>
 
     <main>
-        <section id="mods">
-            <input type="text" id="mod-search" placeholder="Search mods..." style="width: 100%; max-width: 400px; padding: 10px 16px; background-color: #161b22; border: 1px solid #30363d; color: #c9d1d9; font-size: 16px; margin-bottom: 20px;">
+        <!-- Stats Section -->
+        <section id="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <img src="https://img.shields.io/github/stars/www0abdb-oss?style=for-the-badge&logo=github&label=Organization%20Stars" alt="GitHub Stars">
+                </div>
+                <div class="stat-item">
+                    <img src="https://img.shields.io/github/followers/www0abdb-oss?style=for-the-badge&logo=github&label=Followers" alt="GitHub Followers">
+                </div>
+                <div class="stat-item">
+                    <img src="https://img.shields.io/github/last-commit/www0abdb-oss/pvp-teloot?style=for-the-badge&label=Last%20Update" alt="Last Commit">
+                </div>
+            </div>
+        </section>
 
-<script>
-    document.getElementById('mod-search').addEventListener('keyup', function() {
-        const query = this.value.toLowerCase();
-        const cards = document.querySelectorAll('.mod-card');
-        cards.forEach(card => {
-            const title = card.querySelector('h3').textContent.toLowerCase();
-            const desc = card.querySelector('p').textContent.toLowerCase();
-            if (title.includes(query) || desc.includes(query)) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
-</script>
+        <section id="mods">
             <h2>Available Mods</h2>
             <p class="section-description">Browse our collection of open-source Minecraft Fabric mods designed to enhance your gaming experience.</p>
+            
+            <!-- Search Bar -->
+            <input type="text" id="mod-search" placeholder="Search mods..." style="width: 100%; max-width: 400px; padding: 10px 16px; background-color: #161b22; border: 1px solid #30363d; color: #c9d1d9; font-size: 16px; margin-bottom: 20px;">
+
             <div class="mods-grid">
                 <div class="mod-card">
                     <a href="pvp-teloot.html">
                         <div class="mod-icon">P</div>
                         <h3>pvp-teloot</h3>
                         <p>PVP add-on for Minecraft Fabric with many settings and much more</p>
+                        <div class="badges">
+                            <img src="https://img.shields.io/github/v/release/www0abdb-oss/pvp-teloot?label=version&style=flat-square" alt="Version">
+                            <img src="https://img.shields.io/github/downloads/www0abdb-oss/pvp-teloot/total?style=flat-square" alt="Downloads">
+                        </div>
                         <span class="mod-version">v1.0.0</span>
                         <span class="mod-status available">Available</span>
                     </a>
@@ -119,6 +130,10 @@
                         <div class="mod-icon">M</div>
                         <h3>mod-name</h3>
                         <p>Description of the mod goes here</p>
+                        <div class="badges">
+                            <img src="https://img.shields.io/badge/version-1.0.0-blue?style=flat-square" alt="Version">
+                            <img src="https://img.shields.io/badge/downloads-0-red?style=flat-square" alt="Downloads">
+                        </div>
                         <span class="mod-version">v1.0.0</span>
                         <span class="mod-status coming">Coming Soon</span>
                     </a>
@@ -128,6 +143,10 @@
                         <div class="mod-icon">U</div>
                         <h3>utility-mod</h3>
                         <p>Utility mod for better gameplay experience</p>
+                        <div class="badges">
+                            <img src="https://img.shields.io/badge/version-1.0.0-blue?style=flat-square" alt="Version">
+                            <img src="https://img.shields.io/badge/downloads-0-red?style=flat-square" alt="Downloads">
+                        </div>
                         <span class="mod-version">v1.0.0</span>
                         <span class="mod-status available">Available</span>
                     </a>
@@ -137,6 +156,10 @@
                         <div class="mod-icon">O</div>
                         <h3>optimization-mod</h3>
                         <p>Performance optimization for Minecraft</p>
+                        <div class="badges">
+                            <img src="https://img.shields.io/badge/version-1.0.0-blue?style=flat-square" alt="Version">
+                            <img src="https://img.shields.io/badge/downloads-0-red?style=flat-square" alt="Downloads">
+                        </div>
                         <span class="mod-version">v1.0.0</span>
                         <span class="mod-status coming">Coming Soon</span>
                     </a>
@@ -157,6 +180,36 @@
                 <li>Community support and contributions</li>
             </ul>
         </section>
+
+        <!-- Contributors Section -->
+        <section id="contributors">
+            <h2>Our Contributors</h2>
+            <p class="section-description">Meet the amazing people who contribute to our projects.</p>
+            <div class="contributors-grid" id="contributors-list">
+                <p>Loading contributors...</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>How do I install Fabric?</h3>
+                <p>Download the Fabric installer from <a href="https://fabricmc.net/" target="_blank">fabricmc.net</a> and run it with your Minecraft version.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Are your mods compatible with OptiFine?</h3>
+                <p>We recommend using Sodium instead for better Fabric compatibility and performance.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How can I contribute?</h3>
+                <p>You can contribute by submitting Pull Requests on our GitHub repositories or reporting issues.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What license are your mods under?</h3>
+                <p>All our mods are licensed under the Apache-2.0 license.</p>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -165,20 +218,72 @@
             <p>Licensed under Apache-2.0 | <a href="https://github.com/www0abdb-oss">GitHub</a></p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
     <button id="back-to-top" style="display: none; position: fixed; bottom: 30px; right: 30px; background-color: #238636; color: white; border: none; padding: 12px 16px; cursor: pointer; font-size: 18px;">↑ Top</button>
 
-<script>
-    const backToTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTop.style.display = 'block';
-        } else {
-            backToTop.style.display = 'none';
+    <script>
+        // Search functionality
+        document.getElementById('mod-search').addEventListener('keyup', function() {
+            const query = this.value.toLowerCase();
+            const cards = document.querySelectorAll('.mod-card');
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+                if (title.includes(query) || desc.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Load Contributors from GitHub API
+        async function loadContributors() {
+            try {
+                const response = await fetch('https://api.github.com/repos/www0abdb-oss/pvp-teloot/contributors');
+                if (!response.ok) throw new Error('Failed to fetch');
+                const contributors = await response.json();
+                
+                const container = document.getElementById('contributors-list');
+                container.innerHTML = '';
+                
+                if (contributors.length === 0) {
+                    container.innerHTML = '<p>No contributors yet. Be the first!</p>';
+                    return;
+                }
+                
+                contributors.forEach(contributor => {
+                    const card = document.createElement('div');
+                    card.className = 'contributor-card';
+                    card.innerHTML = `
+                        <a href="${contributor.html_url}" target="_blank">
+                            <img src="${contributor.avatar_url}" alt="${contributor.login}" width="60" height="60">
+                            <span>${contributor.login}</span>
+                            <small>${contributor.contributions} commits</small>
+                        </a>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (error) {
+                document.getElementById('contributors-list').innerHTML = '<p>Unable to load contributors. Please visit our <a href="https://github.com/www0abdb-oss" target="_blank">GitHub</a> page.</p>';
+            }
         }
-    });
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-</script>
+        
+        loadContributors();
+
+        // Back to Top Button
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
