@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #0d1117;
     color: #c9d1d9;
     line-height: 1.6;
@@ -99,6 +99,25 @@ section h2 {
     margin-bottom: 24px;
 }
 
+/* Stats Section */
+#stats {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    padding: 24px;
+    margin-bottom: 40px;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.stat-item img {
+    height: 28px;
+}
+
 /* Mods Grid */
 .mods-grid {
     display: grid;
@@ -178,6 +197,18 @@ section h2 {
     color: #ffffff;
 }
 
+/* Badges */
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0 12px 0;
+}
+
+.badges img {
+    height: 20px;
+}
+
 /* About Section */
 #about {
     background-color: #161b22;
@@ -205,6 +236,95 @@ section h2 {
 
 .about-list li {
     margin-bottom: 4px;
+}
+
+/* Contributors Section */
+#contributors {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    padding: 32px;
+}
+
+#contributors h2 {
+    margin-bottom: 8px;
+}
+
+.contributors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.contributor-card {
+    text-align: center;
+    background-color: #21262d;
+    border: 1px solid #30363d;
+    padding: 12px;
+    transition: background-color 0.2s;
+}
+
+.contributor-card:hover {
+    background-color: #30363d;
+}
+
+.contributor-card a {
+    text-decoration: none;
+    color: #c9d1d9;
+}
+
+.contributor-card img {
+    display: block;
+    margin: 0 auto 8px;
+    border: 1px solid #30363d;
+}
+
+.contributor-card span {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.contributor-card small {
+    display: block;
+    color: #8b949e;
+    font-size: 12px;
+}
+
+/* FAQ Section */
+#faq {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    padding: 32px;
+}
+
+.faq-item {
+    padding: 16px 0;
+    border-bottom: 1px solid #30363d;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item h3 {
+    color: #f0f6fc;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.faq-item p {
+    color: #8b949e;
+    font-size: 15px;
+}
+
+.faq-item a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.faq-item a:hover {
+    text-decoration: underline;
 }
 
 /* Footer */
@@ -296,6 +416,7 @@ footer {
     display: flex;
     gap: 24px;
     flex-wrap: wrap;
+    margin-top: 8px;
 }
 
 .mod-meta .meta-item {
@@ -405,7 +526,10 @@ footer {
         justify-content: center;
     }
 
-    #about {
+    #about,
+    #contributors,
+    #faq,
+    #stats {
         padding: 20px;
     }
 }
@@ -427,5 +551,9 @@ footer {
         width: 60px;
         height: 60px;
         font-size: 28px;
+    }
+
+    .contributors-grid {
+        justify-content: center;
     }
 }
