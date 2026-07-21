@@ -1,4 +1,4 @@
-# pvp-teloot Website
+# Website
 
 ![GitHub](https://img.shields.io/github/license/www0abdb-oss/pvp-teloot?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/www0abdb-oss/pvp-teloot?style=flat-square)
