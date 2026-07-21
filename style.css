@@ -88,9 +88,15 @@ section {
 section h2 {
     font-size: 28px;
     color: #f0f6fc;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     font-weight: 600;
     letter-spacing: 0.5px;
+}
+
+.section-description {
+    color: #8b949e;
+    font-size: 16px;
+    margin-bottom: 24px;
 }
 
 /* Mods Grid */
@@ -185,8 +191,20 @@ section h2 {
     font-size: 16px;
 }
 
-#about p:last-child {
+#about p:last-of-type {
     margin-bottom: 0;
+}
+
+.about-list {
+    color: #8b949e;
+    padding-left: 24px;
+    margin-top: 8px;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.about-list li {
+    margin-bottom: 4px;
 }
 
 /* Footer */
@@ -205,6 +223,15 @@ footer {
 
 .footer-content p:first-child {
     margin-bottom: 4px;
+}
+
+.footer-content a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
 }
 
 /* ============================================ */
