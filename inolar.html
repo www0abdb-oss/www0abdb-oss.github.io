@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرجع أوامر EssentialsX - النسخة العربية</title>
+    <style>
+        /* ====== التصميم الأساسي ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #1e1e2f;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ====== الرأس ====== */
+        .header {
+            background: linear-gradient(135deg, #c62828, #b71c1c);
+            color: #fff;
+            padding: 40px 20px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(198, 40, 40, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-top: 8px;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            margin-top: 12px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ====== أدوات البحث والفلترة ====== */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            background: #fff;
+            padding: 20px 24px;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            margin-bottom: 30px;
+            align-items: center;
+            border: 1px solid #e8e8e8;
+        }
+
+        .filters label {
+            font-weight: 600;
+            color: #444;
+            font-size: 0.95rem;
+        }
+
+        .filters input,
+        .filters select {
+            padding: 10px 16px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: #fafafa;
+            transition: 0.3s;
+            flex: 1;
+            min-width: 180px;
+            font-family: inherit;
+        }
+
+        .filters input:focus,
+        .filters select:focus {
+            outline: none;
+            border-color: #c62828;
+            box-shadow: 0 0 0 4px rgba(198, 40, 40, 0.12);
+            background: #fff;
+        }
+
+        .filters .search-wrap {
+            flex: 2;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .filters .search-wrap input {
+            flex: 1;
+        }
+
+        .count-badge {
+            background: #c62828;
+            color: #fff;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* ====== الجدول ====== */
+        .table-wrap {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid #e8e8e8;
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+            padding: 4px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            min-width: 780px;
+        }
+
+        thead {
+            background: #f8f9fc;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        th {
+            padding: 16px 18px;
+            text-align: right;
+            font-weight: 700;
+            color: #333;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 14px 18px;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: middle;
+            line-height: 1.5;
+        }
+
+        tr:hover td {
+            background: #fafbff;
+        }
+
+        /* ====== التصنيفات (Badges) ====== */
+        .module-badge {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: #eef2f7;
+            color: #2c3e50;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        .module-badge.essentials { background: #e3f0ff; color: #0d47a1; }
+        .module-badge.chat { background: #e8f5e9; color: #1b5e20; }
+        .module-badge.discord { background: #e8eaf6; color: #283593; }
+        .module-badge.discord-link { background: #f3e5f5; color: #6a1b9a; }
+        .module-badge.spawn { background: #fff3e0; color: #bf360c; }
+        .module-badge.xmpp { background: #fce4ec; color: #880e4f; }
+
+        /* ====== الأمر ====== */
+        .cmd {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            color: #c62828;
+            background: #fff5f5;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            display: inline-block;
+            direction: ltr;
+            unicode-bidi: embed;
+        }
+
+        .cmd-code {
+            font-family: 'Courier New', monospace;
+            background: #f4f4f9;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: #1e1e2f;
+            display: inline-block;
+            direction: ltr;
+            unicode-bidi: embed;
+            word-break: break-all;
+        }
+
+        .aliases-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 8px;
+        }
+
+        .aliases-list .alias {
+            background: #f0f0f5;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-family: 'Courier New', monospace;
+            color: #444;
+            direction: ltr;
+            unicode-bidi: embed;
+        }
+
+        .aliases-list .more {
+            font-size: 0.7rem;
+            color: #888;
+        }
+
+        /* ====== التذييل ====== */
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer a {
+            color: #c62828;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* ====== التوافق مع الجوال ====== */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .header p { font-size: 1rem; }
+            .filters { flex-direction: column; align-items: stretch; }
+            .filters .search-wrap { flex-direction: column; }
+            th, td { padding: 10px 12px; font-size: 0.85rem; }
+            .cmd { font-size: 0.8rem; padding: 2px 8px; }
+        }
+
+        @media (max-width: 600px) {
+            .header { padding: 24px 16px; }
+            .header h1 { font-size: 1.6rem; }
+            table { font-size: 0.75rem; min-width: 600px; }
+            th, td { padding: 8px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ====== الرأس ====== -->
+    <header class="header">
+        <h1>📋 مرجع أوامر EssentialsX</h1>
+        <p>المرجع الشامل لجميع أوامر الإضافة — مترجم بالكامل إلى العربية</p>
+        <div class="badge">🧾 163 أمراً · محدث لأحدث إصدار</div>
+    </header>
+
+    <!-- ====== أدوات البحث ====== -->
+    <div class="filters">
+        <div class="search-wrap">
+            <label for="searchInput">🔍 بحث:</label>
+            <input type="text" id="searchInput" placeholder="ابحث باسم الأمر أو الوصف..." oninput="filterTable()">
+        </div>
+        <div>
+            <label for="moduleFilter">📂 الوحدة:</label>
+            <select id="moduleFilter" onchange="filterTable()">
+                <option value="all">الكل</option>
+                <option value="Essentials">Essentials</option>
+                <option value="Chat">Chat</option>
+                <option value="Discord">Discord</option>
+                <option value="Discord Link">Discord Link</option>
+                <option value="Spawn">Spawn</option>
+                <option value="XMPP">XMPP</option>
+            </select>
+        </div>
+        <span class="count-badge" id="resultCount">163 أمر</span>
+    </div>
+
+    <!-- ====== الجدول ====== -->
+    <div class="table-wrap">
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>الوحدة</th>
+                        <th>الأمر</th>
+                        <th>المرادفات</th>
+                        <th>الوصف</th>
+                        <th>طريقة الاستخدام</th>
+                    </tr>
+                </thead>
+                <tbody id="commandsBody">
+                    <!-- سيتم ملؤها بواسطة JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ====== التذييل ====== -->
+    <div class="footer">
+        <p>جميع الحقوق محفوظة © 2026 · تمت الترجمة يدوياً لأغراض تعليمية · 
+        <a href="https://essentialsx.net" target="_blank">الموقع الرسمي EssentialsX</a></p>
+        <p style="font-size:0.8rem; margin-top:6px;">تمت الترجمة من المجتمع، وليست رسمية من فريق التطوير.</p>
+    </div>
+
+</div>
+
+<script>
+    // ============================================================
+    //  بيانات الأوامر (مترجمة بالكامل)
+    // ============================================================
+    const commandsData = [
+        // === Essentials ===
+        { module: "Essentials", cmd: "/afk", aliases: ["away", "eafk", "eaway"], desc: "يحدد أنك غير متواجد (بعيد عن لوحة المفاتيح).", usage: "/afk [player/message...]" },
+        { module: "Essentials", cmd: "/antioch", aliases: ["tnt", "grenade", "etnt", "+2"], desc: "مفاجأة صغيرة للمشرفين (تسبب انفجاراً).", usage: "/antioch [message]" },
+        { module: "Essentials", cmd: "/anvil", aliases: ["eanvil"], desc: "يفتح واجهة سندان (للتعديل على الأدوات).", usage: "/anvil" },
+        { module: "Essentials", cmd: "/back", aliases: ["return", "eback", "ereturn"], desc: "يعيد توجيهك إلى الموقع السابق قبل الانتقال.", usage: "/back [player]" },
+        { module: "Essentials", cmd: "/backup", aliases: ["ebackup"], desc: "يشغّل النسخ الاحتياطي إذا تم إعداده مسبقاً.", usage: "/backup" },
+        { module: "Essentials", cmd: "/balance", aliases: ["bal", "money", "ebal", "+2"], desc: "يعرض الرصيد الحالي للاعب.", usage: "/balance [player]" },
+        { module: "Essentials", cmd: "/balancetop", aliases: ["baltop", "ebaltop", "ebalancetop"], desc: "يعرض قائمة اللاعبين الأعلى رصيداً.", usage: "/balancetop [page]" },
+        { module: "Essentials", cmd: "/ban", aliases: ["eban"], desc: "يمنع لاعباً من الدخول إلى السيرفر.", usage: "/ban <player> [reason]" },
+        { module: "Essentials", cmd: "/banip", aliases: ["ebanip"], desc: "يمنع عنوان IP معيناً.", usage: "/banip <address> [reason]" },
+        { module: "Essentials", cmd: "/beezooka", aliases: ["beecannon", "ebeezooka", "ebeecannon"], desc: "يرمي نحلة متفجرة تجاه خصمك.", usage: "/beezooka" },
+        { module: "Essentials", cmd: "/book", aliases: ["ebook"], desc: "يسمح بإعادة فتح وتحرير الكتب المختومة.", usage: "/book [title|author [name]]" },
+        { module: "Essentials", cmd: "/bottom", aliases: ["ebottom"], desc: "الانتقال إلى أدنى كتلة في موقعك الحالي.", usage: "/bottom" },
+        { module: "Essentials", cmd: "/break", aliases: ["ebreak"], desc: "يكسر الكتلة التي تنظر إليها.", usage: "/break" },
+        { module: "Essentials", cmd: "/broadcast", aliases: ["bc", "bcast", "shout", "+4"], desc: "يبث رسالة للسيرفر بالكامل.", usage: "/broadcast <msg>" },
+        { module: "Essentials", cmd: "/broadcastworld", aliases: ["bcw", "bcastw", "shoutworld", "+4"], desc: "يبث رسالة لعالم معين.", usage: "/broadcastworld <world> <msg>" },
+        { module: "Essentials", cmd: "/bigtree", aliases: ["largetree", "ebigtree", "elargetree"], desc: "يزرع شجرة كبيرة في مكان نظرك.", usage: "/bigtree <tree|redwood|jungle|darkoak>" },
+        { module: "Essentials", cmd: "/burn", aliases: ["eburn"], desc: "يشعل النار في لاعب.", usage: "/burn <player> <seconds>" },
+        { module: "Essentials", cmd: "/cartographytable", aliases: ["carttable", "ecarttable", "ecartographytable"], desc: "يفتح طاولة رسم الخرائط.", usage: "/cartographytable" },
+        { module: "Essentials", cmd: "/clearinventory", aliases: ["ci", "clean", "clear", "+6"], desc: "يمسح جميع عناصر مخزونك.", usage: "/clearinventory [player|*] [item] [amount]" },
+        { module: "Essentials", cmd: "/clearinventoryconfirmtoggle", aliases: ["clearconfirm", "clearconfirmon", "clearconfirmoff", "+6"], desc: "يفعّل / يعطّل تأكيد مسح المخزون.", usage: "/clearinventoryconfirmtoggle" },
+        { module: "Essentials", cmd: "/condense", aliases: ["blocks", "compact", "toblocks", "+4"], desc: "يكثف العناصر إلى كتل أكثر إحكاما.", usage: "/condense [item]" },
+        { module: "Essentials", cmd: "/compass", aliases: ["direction", "ecompass", "edirection"], desc: "يصف اتجاهك الحالي.", usage: "/compass" },
+        { module: "Essentials", cmd: "/createkit", aliases: ["ck", "kc", "createk", "+1"], desc: "ينشئ كيت (مجموعة أدوات) داخل اللعبة.", usage: "/createkit <kitname> <delay>" },
+        { module: "Essentials", cmd: "/customtext", aliases: [], desc: "يسمح بإنشاء أوامر نصية مخصصة (تُعرّف في bukkit.yml).", usage: "/customtext (يُعرّف في الملف)" },
+        { module: "Essentials", cmd: "/delhome", aliases: ["rmhome", "remhome", "ermhome", "+2"], desc: "يحذف منزلاً.", usage: "/delhome [player:]name" },
+        { module: "Essentials", cmd: "/deljail", aliases: ["rmjail", "remjail", "ermjail", "+2"], desc: "يحذف سجناً.", usage: "/deljail <jailname>" },
+        { module: "Essentials", cmd: "/delkit", aliases: ["rmkit", "remkit", "deletekit", "+4"], desc: "يحذف كيتاً.", usage: "/delkit <kit>" },
+        { module: "Essentials", cmd: "/delwarp", aliases: ["rmwarp", "remwarp", "ermwarp", "+2"], desc: "يحذف نقطة انتقال (Warp).", usage: "/delwarp <warp>" },
+        { module: "Essentials", cmd: "/depth", aliases: ["height", "edepth", "eheight"], desc: "يعرض العمق الحالي نسبة لمستوى سطح البحر.", usage: "/depth" },
+        { module: "Essentials", cmd: "/disposal", aliases: ["trash", "etrash", "edisposal"], desc: "يفتح قائمة إهمال (مثل سلة المهملات).", usage: "/disposal" },
+        { module: "Essentials", cmd: "/eco", aliases: ["economy", "eeco", "eeconomy"], desc: "يدير اقتصاد السيرفر (إعطاء / سحب / تعيين / إعادة تعيين).", usage: "/eco <give|take|set|reset> <player> <amount>" },
+        { module: "Essentials", cmd: "/enchant", aliases: ["enchantment", "eenchant", "eenchantment"], desc: "يضيف سحراً على العنصر الذي تحمله.", usage: "/enchant <enchantmentname> [level]" },
+        { module: "Essentials", cmd: "/enderchest", aliases: ["ec", "echest", "endersee", "+4"], desc: "يسمح برؤية صندوق الإندر الخاص بك أو بلاعب آخر.", usage: "/enderchest [player]" },
+        { module: "Essentials", cmd: "/essentials", aliases: ["ess", "essversion", "eess", "+1"], desc: "يعيد تحميل الإضافة.", usage: "/essentials" },
+        { module: "Essentials", cmd: "/exp", aliases: ["xp", "eexp"], desc: "يدير نقاط الخبرة (يعطي / يضبط / يعيد تعيين / يعرض).", usage: "/exp [reset|show|set|give] [playername [amount]]" },
+        { module: "Essentials", cmd: "/ext", aliases: ["extinguish", "eext", "eextinguish"], desc: "يطفئ النار عن اللاعبين.", usage: "/ext [player]" },
+        { module: "Essentials", cmd: "/feed", aliases: ["eat", "eeat", "efeed"], desc: "يملأ جوعك بالكامل.", usage: "/feed [player]" },
+        { module: "Essentials", cmd: "/fly", aliases: ["efly"], desc: "يفعّل الطيران.", usage: "/fly [player] [on|off]" },
+        { module: "Essentials", cmd: "/fireball", aliases: ["fireskull", "fireentity", "efireball", "+2"], desc: "يرمي كرة نارية أو مقذوفات أخرى.", usage: "/fireball [type] [speed]" },
+        { module: "Essentials", cmd: "/firework", aliases: ["efirework"], desc: "يعدل الألعاب النارية.", usage: "/firework <meta|power|clear|fire>" },
+        { module: "Essentials", cmd: "/gamemode", aliases: ["gm", "sp", "gma", "+26"], desc: "يغير وضع اللعب (بقاء، إبداع، مغامرة، متفرج).", usage: "/gamemode <mode> [player]" },
+        { module: "Essentials", cmd: "/gc", aliases: ["lag", "mem", "tps", "+10"], desc: "يعرض معلومات الذاكرة، وقت التشغيل، والتيك.", usage: "/gc" },
+        { module: "Essentials", cmd: "/getpos", aliases: ["coords", "getloc", "position", "+7"], desc: "يعرض إحداثياتك الحالية أو إحداثيات لاعب آخر.", usage: "/getpos [player]" },
+        { module: "Essentials", cmd: "/give", aliases: ["egive"], desc: "يعطي لاعباً عنصراً.", usage: "/give <player> <item> [amount]" },
+        { module: "Essentials", cmd: "/god", aliases: ["tgm", "godmode", "egod", "+2"], desc: "يفعّل وضع الخلود (عدم الموت).", usage: "/god [player] [on|off]" },
+        { module: "Essentials", cmd: "/grindstone", aliases: ["egrindstone"], desc: "يفتح واجهة حجر الطحن.", usage: "/grindstone" },
+        { module: "Essentials", cmd: "/hat", aliases: ["head", "ehat", "ehead"], desc: "يضع العنصر الذي تحمله على رأسك كقبعة.", usage: "/hat [remove]" },
+        { module: "Essentials", cmd: "/heal", aliases: ["eheal"], desc: "يشفي صحتك أو صحة لاعب آخر.", usage: "/heal [player]" },
+        { module: "Essentials", cmd: "/help", aliases: ["ehelp"], desc: "يعرض قائمة الأوامر المتاحة.", usage: "/help [search term] [page]" },
+        { module: "Essentials", cmd: "/helpop", aliases: ["ac", "amsg", "eac", "+2"], desc: "يرسل رسالة إلى المشرفين المتصلين.", usage: "/helpop <message>" },
+        { module: "Essentials", cmd: "/home", aliases: ["homes", "ehome", "ehomes"], desc: "ينتقل إلى منزلك.", usage: "/home [player:][name]" },
+        { module: "Essentials", cmd: "/ice", aliases: ["efreeze", "eice"], desc: "يجمد لاعباً (يبرده).", usage: "/ice [player]" },
+        { module: "Essentials", cmd: "/ignore", aliases: ["rmignore", "unignore", "delignore", "+6"], desc: "يتجاهل لاعباً آخر (يمنع رسائله).", usage: "/ignore <player>" },
+        { module: "Essentials", cmd: "/info", aliases: ["ifo", "news", "about", "+6"], desc: "يعرض معلومات يضعها مالك السيرفر.", usage: "/info [chapter] [page]" },
+        { module: "Essentials", cmd: "/invsee", aliases: ["einvsee"], desc: "يسمح برؤية مخزون لاعب آخر.", usage: "/invsee <player>" },
+        { module: "Essentials", cmd: "/item", aliases: ["i", "ei", "eitem"], desc: "يحضر عنصراً.", usage: "/item <item> [amount]" },
+        { module: "Essentials", cmd: "/itemdb", aliases: ["dura", "itemno", "durability", "+4"], desc: "يبحث عن عنصر معين.", usage: "/itemdb <item>" },
+        { module: "Essentials", cmd: "/itemlore", aliases: ["lore", "ilore", "elore", "+2"], desc: "يعدل النص الوصفي لعنصر.", usage: "/itemlore <add|set|clear>" },
+        { module: "Essentials", cmd: "/itemname", aliases: ["iname", "irename", "itemrename", "+4"], desc: "يسمي عنصراً باسم مخصص.", usage: "/itemname [name]" },
+        { module: "Essentials", cmd: "/jailedplayers", aliases: ["ejp", "ejailed", "ejailedplayers"], desc: "يعرض قائمة اللاعبين المسجونين.", usage: "/jailedplayers" },
+        { module: "Essentials", cmd: "/jails", aliases: ["ejails"], desc: "يعرض قائمة السجون.", usage: "/jails" },
+        { module: "Essentials", cmd: "/jump", aliases: ["j", "jumpto", "ej", "+2"], desc: "يقفز إلى أقرب كتلة في اتجاه نظرك.", usage: "/jump" },
+        { module: "Essentials", cmd: "/kick", aliases: ["ekick"], desc: "يطرد لاعباً من السيرفر مع سبب.", usage: "/kick <player> [reason]" },
+        { module: "Essentials", cmd: "/kickall", aliases: ["ekickall"], desc: "يطرد جميع اللاعبين ما عدا المنفذ.", usage: "/kickall [reason]" },
+        { module: "Essentials", cmd: "/kill", aliases: ["ekill"], desc: "يقتل لاعباً.", usage: "/kill <player>" },
+        { module: "Essentials", cmd: "/kit", aliases: ["kits", "ekit", "ekits"], desc: "يحصل على كيت أو يعرض الكيتات المتاحة.", usage: "/kit [kit] [player]" },
+        { module: "Essentials", cmd: "/kitreset", aliases: ["kitr", "resetkit", "ekitr", "+2"], desc: "يعيد ضبط وقت التهدئة (Cooldown) لكيت.", usage: "/kitreset <kit> [player]" },
+        { module: "Essentials", cmd: "/kittycannon", aliases: ["ekittycannon"], desc: "يرمي قطة متفجرة تجاه خصمك.", usage: "/kittycannon" },
+        { module: "Essentials", cmd: "/lightning", aliases: ["thor", "shock", "smite", "+6"], desc: "يضرب صاعقة في موقع المؤشر أو لاعب.", usage: "/lightning [player] [power]" },
+        { module: "Essentials", cmd: "/list", aliases: ["who", "plist", "online", "+6"], desc: "يعرض قائمة اللاعبين المتصلين.", usage: "/list [group]" },
+        { module: "Essentials", cmd: "/loom", aliases: ["eloom"], desc: "يفتح واجهة النول (للأقمشة).", usage: "/loom" },
+        { module: "Essentials", cmd: "/mail", aliases: ["memo", "email", "ememo", "+1"], desc: "يدير البريد بين اللاعبين.", usage: "/mail [read|clear|send...]" },
+        { module: "Essentials", cmd: "/me", aliases: ["action", "describe", "eme", "+2"], desc: "يصف حدثاً بصيغة الفعل (مثل: يقوم بـ...).", usage: "/me <description>" },
+        { module: "Essentials", cmd: "/more", aliases: ["emore"], desc: "يملأ الكومة الحالية إلى أقصى حد.", usage: "/more [amount]" },
+        { module: "Essentials", cmd: "/motd", aliases: ["emotd"], desc: "يعرض رسالة اليوم.", usage: "/motd [chapter] [page]" },
+        { module: "Essentials", cmd: "/msg", aliases: ["m", "t", "w", "+7"], desc: "يرسل رسالة خاصة للاعب.", usage: "/msg <to> <message>" },
+        { module: "Essentials", cmd: "/msgtoggle", aliases: ["emsgtoggle"], desc: "يمنع أو يسمح باستقبال الرسائل الخاصة.", usage: "/msgtoggle [player] [on|off]" },
+        { module: "Essentials", cmd: "/mute", aliases: ["unmute", "silence", "emute", "+2"], desc: "يكتم صوت لاعب أو يلغي كتمه.", usage: "/mute <player> [datediff] [reason]" },
+        { module: "Essentials", cmd: "/near", aliases: ["nearby", "enear", "enearby"], desc: "يعرض اللاعبين القريبين منك.", usage: "/near [playername] [radius]" },
+        { module: "Essentials", cmd: "/nick", aliases: ["nickname", "enick", "enickname"], desc: "يغير الكنية (اللقب) الخاص بك أو بلاعب آخر.", usage: "/nick [player] <nickname|off>" },
+        { module: "Essentials", cmd: "/nuke", aliases: ["enuke"], desc: "يضرب منطقة بانفجار شديد (يمطر الموت).", usage: "/nuke [player]" },
+        { module: "Essentials", cmd: "/tpoffline", aliases: ["otp", "tpoff", "offlinetp", "+2"], desc: "ينتقل إلى آخر موقع معروف للاعب غير متصل.", usage: "/tpoffline <player>" },
+        { module: "Essentials", cmd: "/pay", aliases: ["epay"], desc: "يدفع مبلغاً من رصيدك إلى لاعب آخر.", usage: "/pay <player> <amount>" },
+        { module: "Essentials", cmd: "/paytoggle", aliases: ["payon", "payoff", "epayon", "+2"], desc: "يفعّل أو يعطّل قبول المدفوعات.", usage: "/paytoggle [player]" },
+        { module: "Essentials", cmd: "/payconfirmtoggle", aliases: ["payconfirm", "payconfirmon", "payconfirmoff", "+4"], desc: "يفعّل أو يعطّل تأكيد الدفع.", usage: "/payconfirmtoggle" },
+        { module: "Essentials", cmd: "/ping", aliases: ["echo", "pong", "eecho", "+2"], desc: "يعيد 'Pong!' (اختبار الاتصال).", usage: "/ping" },
+        { module: "Essentials", cmd: "/playtime", aliases: ["eplaytime"], desc: "يعرض مدة لعب اللاعب.", usage: "/playtime [player]" },
+        { module: "Essentials", cmd: "/potion", aliases: ["elixer", "eelixer", "epotion"], desc: "يضيف تأثيرات جرعة مخصصة.", usage: "/potion <clear|apply|effect...>" },
+        { module: "Essentials", cmd: "/powertool", aliases: ["pt", "ept", "epowertool"], desc: "يربط أمراً بأداة معينة.", usage: "/powertool [command]" },
+        { module: "Essentials", cmd: "/powertoollist", aliases: ["ptlist", "eptlist", "epowertoollist"], desc: "يعرض جميع الأدوات المربوطة.", usage: "/powertoollist" },
+        { module: "Essentials", cmd: "/powertooltoggle", aliases: ["ptt", "pttoggle", "eptt", "+2"], desc: "يفعّل أو يعطّل جميع الأدوات المربوطة.", usage: "/powertooltoggle" },
+        { module: "Essentials", cmd: "/ptime", aliases: ["playertime", "eptime", "eplayertime"], desc: "يضبط وقت العميل للاعب.", usage: "/ptime [list|reset|day|night...] [player]" },
+        { module: "Essentials", cmd: "/pweather", aliases: ["playerweather", "epweather", "eplayerweather"], desc: "يضبط الطقس للاعب معين.", usage: "/pweather [list|reset|storm|sun] [player]" },
+        { module: "Essentials", cmd: "/r", aliases: ["reply", "er", "ereply"], desc: "يرد بسرعة على آخر من أرسل لك رسالة.", usage: "/r <message>" },
+        { module: "Essentials", cmd: "/rtoggle", aliases: ["replytoggle", "ertoggle", "ereplytoggle"], desc: "يغير طريقة الرد (آخر مرسل أو آخر مستقبل).", usage: "/rtoggle [player] [on|off]" },
+        { module: "Essentials", cmd: "/realname", aliases: ["erealname"], desc: "يعرض اسم اللاعب الحقيقي بناءً على الكنية.", usage: "/realname <nickname>" },
+        { module: "Essentials", cmd: "/recipe", aliases: ["method", "formula", "recipes", "+4"], desc: "يعرض طريقة صنع عنصر معين.", usage: "/recipe <item|hand> [number]" },
+        { module: "Essentials", cmd: "/remove", aliases: ["butcher", "killall", "mobkill", "+4"], desc: "يزيل كيانات من العالم (وحوش، حيوانات، دروع، إلخ).", usage: "/remove <type> [radius]" },
+        { module: "Essentials", cmd: "/renamehome", aliases: ["erenamehome"], desc: "يعيد تسمية منزل.", usage: "/renamehome <[player:]name> <new name>" },
+        { module: "Essentials", cmd: "/repair", aliases: ["fix", "efix", "erepair"], desc: "يصلح العنصر الذي تحمله أو جميع العناصر.", usage: "/repair [hand|all]" },
+        { module: "Essentials", cmd: "/rest", aliases: ["erest"], desc: "يعيد ضبط صحتك وجوعك (يريحك).", usage: "/rest [player]" },
+        { module: "Essentials", cmd: "/rules", aliases: ["erules"], desc: "يعرض قوانين السيرفر.", usage: "/rules [chapter] [page]" },
+        { module: "Essentials", cmd: "/seen", aliases: ["alts", "ealts", "eseen"], desc: "يعرض آخر وقت خروج للاعب.", usage: "/seen <playername>" },
+        { module: "Essentials", cmd: "/sell", aliases: ["esell"], desc: "يبيع العنصر الذي تحمله.", usage: "/sell <item|hand|inventory|blocks> [amount]" },
+        { module: "Essentials", cmd: "/sethome", aliases: ["createhome", "esethome", "ecreatehome"], desc: "يحدد موقع منزلك الحالي.", usage: "/sethome [[player:]name]" },
+        { module: "Essentials", cmd: "/setjail", aliases: ["createjail", "esetjail", "ecreatejail"], desc: "ينشئ سجناً في موقعك الحالي.", usage: "/setjail <jailname>" },
+        { module: "Essentials", cmd: "/settpr", aliases: ["settprandom", "esettpr", "esettprandom"], desc: "يضبط موقع الانتقال العشوائي.", usage: "/settpr <world> [center|minrange|maxrange] [value]" },
+        { module: "Essentials", cmd: "/setwarp", aliases: ["createwarp", "esetwarp", "ecreatewarp"], desc: "ينشئ نقطة انتقال جديدة.", usage: "/setwarp <warp>" },
+        { module: "Essentials", cmd: "/setworth", aliases: ["esetworth"], desc: "يحدد قيمة بيع عنصر معين.", usage: "/setworth [itemname|id] <price>" },
+        { module: "Essentials", cmd: "/showkit", aliases: ["kitshow", "preview", "kitpreview"], desc: "يعرض محتويات كيت معين.", usage: "/showkit <kitname>" },
+        { module: "Essentials", cmd: "/editsign", aliases: ["sign", "esign", "eeditsign"], desc: "يعدل لافتة في العالم.", usage: "/editsign <set|clear|copy|paste> [line] [text]" },
+        { module: "Essentials", cmd: "/skull", aliases: ["head", "playerskull", "ehead", "+2"], desc: "يحدد صاحب جمجمة لاعب.", usage: "/skull [owner] [player]" },
+        { module: "Essentials", cmd: "/smithingtable", aliases: ["smithtable", "esmithtable", "esmithingtable"], desc: "يفتح طاولة الحدادة.", usage: "/smithingtable" },
+        { module: "Essentials", cmd: "/socialspy", aliases: ["esocialspy"], desc: "يفعّل رؤية الرسائل الخاصة في الشات.", usage: "/socialspy [player] [on|off]" },
+        { module: "Essentials", cmd: "/spawner", aliases: ["changems", "mobspawner", "espawner", "+2"], desc: "يغير نوع المخلوق في مولّد الوحوش.", usage: "/spawner <mob> [delay]" },
+        { module: "Essentials", cmd: "/spawnmob", aliases: ["mob", "spawnentity", "emob", "+2"], desc: "يولد مخلوقاً.", usage: "/spawnmob <mob> [amount] [player]" },
+        { module: "Essentials", cmd: "/speed", aliases: ["fspeed", "wspeed", "flyspeed", "+6"], desc: "يغير سرعة الحركة أو الطيران.", usage: "/speed [type] <speed> [player]" },
+        { module: "Essentials", cmd: "/stonecutter", aliases: ["estonecutter"], desc: "يفتح واجهة قطع الحجر.", usage: "/stonecutter" },
+        { module: "Essentials", cmd: "/sudo", aliases: ["esudo"], desc: "يجعل لاعباً آخر ينفذ أمراً.", usage: "/sudo <player> <command>" },
+        { module: "Essentials", cmd: "/suicide", aliases: ["esuicide"], desc: "يقتل نفسك.", usage: "/suicide" },
+        { module: "Essentials", cmd: "/tempban", aliases: ["etempban"], desc: "يمنع لاعباً مؤقتاً.", usage: "/tempban <playername> <datediff> [reason]" },
+        { module: "Essentials", cmd: "/tempbanip", aliases: ["etempbanip"], desc: "يمنع IP مؤقتاً.", usage: "/tempbanip <playername> <datediff> [reason]" },
+        { module: "Essentials", cmd: "/thunder", aliases: ["ethunder"], desc: "يفعّل أو يعطّل الرعد.", usage: "/thunder <true|false> [duration]" },
+        { module: "Essentials", cmd: "/time", aliases: ["day", "night", "eday", "+2"], desc: "يعرض أو يغير وقت العالم.", usage: "/time [set|add] [day|night...] [world]" },
+        { module: "Essentials", cmd: "/togglejail", aliases: ["jail", "tjail", "unjail", "+4"], desc: "يسجن أو يطلق سراح لاعب.", usage: "/togglejail <player> <jailname> [datediff]" },
+        { module: "Essentials", cmd: "/top", aliases: ["etop"], desc: "ينتقل إلى أعلى كتلة في موقعك الحالي.", usage: "/top" },
+        { module: "Essentials", cmd: "/tp", aliases: ["tele", "tp2p", "teleport", "+4"], desc: "ينتقل إلى لاعب آخر.", usage: "/tp <player> [otherplayer]" },
+        { module: "Essentials", cmd: "/tpa", aliases: ["call", "tpask", "etpa", "+2"], desc: "يطلب الانتقال إلى لاعب آخر.", usage: "/tpa <player>" },
+        { module: "Essentials", cmd: "/tpaall", aliases: ["etpaall"], desc: "يطلب من جميع اللاعبين الانتقال إليك.", usage: "/tpaall <player>" },
+        { module: "Essentials", cmd: "/tpaccept", aliases: ["tpyes", "etpyes", "etpaccept"], desc: "يقبل طلب انتقال.", usage: "/tpaccept [otherplayer]" },
+        { module: "Essentials", cmd: "/tpahere", aliases: ["etpahere"], desc: "يطلب من لاعب الانتقال إليك.", usage: "/tpahere <player>" },
+        { module: "Essentials", cmd: "/tpall", aliases: ["etpall"], desc: "ينقل جميع اللاعبين إلى لاعب معين.", usage: "/tpall [player]" },
+        { module: "Essentials", cmd: "/tpauto", aliases: ["etpauto"], desc: "يقبل طلبات الانتقال تلقائياً.", usage: "/tpauto [player]" },
+        { module: "Essentials", cmd: "/tpacancel", aliases: ["etpacancel"], desc: "يلغي جميع طلبات الانتقال المعلقة.", usage: "/tpacancel [player]" },
+        { module: "Essentials", cmd: "/tpdeny", aliases: ["tpno", "etpno", "etpdeny"], desc: "يرفض طلب انتقال.", usage: "/tpdeny" },
+        { module: "Essentials", cmd: "/tphere", aliases: ["s", "etphere"], desc: "ينقل لاعباً إلى موقعك.", usage: "/tphere <player>" },
+        { module: "Essentials", cmd: "/tpo", aliases: ["etpo"], desc: "انتقال قسري (يتجاوز إعدادات المنع).", usage: "/tpo <player> [otherplayer]" },
+        { module: "Essentials", cmd: "/tpohere", aliases: ["etpohere"], desc: "نقل قسري إلى هنا.", usage: "/tpohere <player>" },
+        { module: "Essentials", cmd: "/tppos", aliases: ["etppos"], desc: "ينتقل إلى إحداثيات محددة.", usage: "/tppos <x> <y> <z> [yaw] [pitch] [world]" },
+        { module: "Essentials", cmd: "/tpr", aliases: ["tprandom", "etpr", "etprandom"], desc: "انتقال عشوائي.", usage: "/tpr" },
+        { module: "Essentials", cmd: "/tptoggle", aliases: ["etptoggle"], desc: "يمنع أو يسمح بجميع أنواع الانتقال.", usage: "/tptoggle [player] [on|off]" },
+        { module: "Essentials", cmd: "/tree", aliases: ["etree"], desc: "يزرع شجرة في مكان نظرك.", usage: "/tree <tree|birch|redwood...>" },
+        { module: "Essentials", cmd: "/unban", aliases: ["pardon", "eunban", "epardon"], desc: "يلغي منع لاعب.", usage: "/unban <player>" },
+        { module: "Essentials", cmd: "/unbanip", aliases: ["pardonip", "eunbanip", "epardonip"], desc: "يلغي منع IP.", usage: "/unbanip <address>" },
+        { module: "Essentials", cmd: "/unlimited", aliases: ["ul", "unl", "eul", "+2"], desc: "يسمح بوضع عناصر غير محدودة.", usage: "/unlimited <list|item|clear> [player]" },
+        { module: "Essentials", cmd: "/vanish", aliases: ["v", "ev", "evanish"], desc: "يخفي نفسك عن اللاعبين الآخرين.", usage: "/vanish [player] [on|off]" },
+        { module: "Essentials", cmd: "/warp", aliases: ["warps", "ewarp", "ewarps"], desc: "يعرض النقاط أو ينتقل إلى نقطة محددة.", usage: "/warp <warp>" },
+        { module: "Essentials", cmd: "/warpinfo", aliases: ["ewarpinfo"], desc: "يعرض معلومات موقع النقطة.", usage: "/warpinfo <warp>" },
+        { module: "Essentials", cmd: "/weather", aliases: ["sky", "sun", "rain", "+6"], desc: "يضبط الطقس (مطر / شمس).", usage: "/weather <storm|sun> [duration]" },
+        { module: "Essentials", cmd: "/whois", aliases: ["ewhois"], desc: "يعرض معلومات أساسية عن لاعب.", usage: "/whois <nickname>" },
+        { module: "Essentials", cmd: "/workbench", aliases: ["wb", "craft", "wbench", "+4"], desc: "يفتح واجهة طاولة التصنيع.", usage: "/workbench" },
+        { module: "Essentials", cmd: "/world", aliases: ["eworld"], desc: "ينتقل بين العوالم.", usage: "/world [world]" },
+        { module: "Essentials", cmd: "/worth", aliases: ["price", "eprice", "eworth"], desc: "يحسب قيمة العنصر الذي تحمله أو عنصر محدد.", usage: "/worth <item|hand|inventory|blocks>" },
+
+        // === Chat ===
+        { module: "Chat", cmd: "/toggleshout", aliases: ["etoggleshout"], desc: "يفعّل أو يعطّل وضع الصياح في الشات.", usage: "/toggleshout [player] [on|off]" },
+
+        // === Discord ===
+        { module: "Discord", cmd: "/discordbroadcast", aliases: ["dbc", "dbcast", "dbroadcast", "+4"], desc: "يبث رسالة إلى قناة ديسكورد محددة.", usage: "/discordbroadcast <channel> <msg>" },
+        { module: "Discord", cmd: "/discord", aliases: ["ediscord"], desc: "يرسل رابط دعوة ديسكورد للاعب.", usage: "/discord" },
+
+        // === Discord Link ===
+        { module: "Discord Link", cmd: "/link", aliases: ["discordlink", "elink", "ediscordlink"], desc: "يولّد رمزاً لربط حساب ماينكرافت بديسكورد.", usage: "/link" },
+        { module: "Discord Link", cmd: "/unlink", aliases: ["discordunlink", "eunlink", "ediscordunlink"], desc: "يفصل حساب ماينكرافت عن حساب ديسكورد المرتبط.", usage: "/unlink" },
+
+        // === Spawn ===
+        { module: "Spawn", cmd: "/setspawn", aliases: ["esetspawn"], desc: "يحدد نقطة الولادة (السباون) في موقعك الحالي.", usage: "/setspawn" },
+        { module: "Spawn", cmd: "/spawn", aliases: ["espawn"], desc: "ينتقل إلى نقطة الولادة (السباون).", usage: "/spawn" },
+
+        // === XMPP ===
+        { module: "XMPP", cmd: "/setxmpp", aliases: [], desc: "يضبط حساب XMPP (بروتوكول قديم).", usage: "/setxmpp" },
+        { module: "XMPP", cmd: "/xmpp", aliases: [], desc: "يرسل رسالة عبر XMPP.", usage: "/xmpp" },
+        { module: "XMPP", cmd: "/xmppspy", aliases: [], desc: "يتجسس على رسائل XMPP (للمشرفين).", usage: "/xmppspy" }
+    ];
+
+    // ============================================================
+    //  عرض البيانات في الجدول مع التصفية
+    // ============================================================
+    function renderTable(filteredData) {
+        const tbody = document.getElementById('commandsBody');
+        if (!filteredData || filteredData.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:40px; color:#999;">❌ لا توجد أوامر تطابق معايير البحث.</td></tr>`;
+            document.getElementById('resultCount').textContent = '0 أمر';
+            return;
+        }
+
+        let html = '';
+        filteredData.forEach(item => {
+            const moduleClass = item.module.replace(/\s/g, '-').toLowerCase();
+            const aliasesHtml = item.aliases && item.aliases.length > 0
+                ? `<div class="aliases-list">${item.aliases.map(a => `<span class="alias">${a}</span>`).join('')}</div>`
+                : '<span style="color:#aaa; font-size:0.8rem;">—</span>';
+
+            html += `
+                <tr>
+                    <td><span class="module-badge ${moduleClass}">${item.module}</span></td>
+                    <td><span class="cmd">${item.cmd}</span></td>
+                    <td>${aliasesHtml}</td>
+                    <td>${item.desc}</td>
+                    <td><span class="cmd-code">${item.usage || '—'}</span></td>
+                </tr>
+            `;
+        });
+
+        tbody.innerHTML = html;
+        document.getElementById('resultCount').textContent = `${filteredData.length} أمر`;
+    }
+
+    // ============================================================
+    //  دالة التصفية (بحث + فلترة حسب الوحدة)
+    // ============================================================
+    function filterTable() {
+        const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+        const moduleFilter = document.getElementById('moduleFilter').value;
+
+        const filtered = commandsData.filter(item => {
+            // فلترة حسب الوحدة
+            if (moduleFilter !== 'all' && item.module !== moduleFilter) return false;
+
+            // بحث في: الأمر، المرادفات، الوصف، طريقة الاستخدام
+            if (searchTerm === '') return true;
+
+            const cmdMatch = item.cmd.toLowerCase().includes(searchTerm);
+            const aliasesMatch = item.aliases && item.aliases.some(a => a.toLowerCase().includes(searchTerm));
+            const descMatch = item.desc.toLowerCase().includes(searchTerm);
+            const usageMatch = item.usage && item.usage.toLowerCase().includes(searchTerm);
+
+            return cmdMatch || aliasesMatch || descMatch || usageMatch;
+        });
+
+        renderTable(filtered);
+    }
+
+    // ============================================================
+    //  التشغيل عند تحميل الصفحة
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', function() {
+        renderTable(commandsData);
+    });
+</script>
+
+</body>
+</html>
