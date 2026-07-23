@@ -256,21 +256,8 @@ section h2 {
     color: #ffffff;
 }
 
-.mod-card .badges {
-    display: flex;
-    gap: 4px;
-    flex-shrink: 0;
-}
 
-.mod-card .badges img {
-    height: 16px;
-    max-width: 80px;
-}
 
-/* Remove duplicate info from badges if any */
-.mod-card .badges .extra-info {
-    display: none;
-}
 /* Badges */
 .badges {
     display: flex;
