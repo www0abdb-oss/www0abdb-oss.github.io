@@ -15,24 +15,6 @@ body {
     flex-direction: column;
 }
 
-/* Light Theme Variables */
-body.light-theme {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f6f8fa;
-    --bg-card: #ffffff;
-    --text-primary: #24292f;
-    --text-secondary: #57606a;
-    --border-color: #d0d7de;
-    --bg-nav: #f6f8fa;
-    --bg-footer: #f6f8fa;
-}
-
-body {
-    background-color: var(--bg-primary, #0d1117);
-    color: var(--text-primary, #c9d1d9);
-    transition: background-color 0.3s, color 0.3s;
-}
-
 /* Header */
 header {
     background-color: #161b22;
@@ -136,23 +118,17 @@ section h2 {
     height: 28px;
 }
 
-/* ============================================ */
-/* MODS LIST - FIXED VERSION */
-/* ============================================ */
-
+/* Mods Grid */
 .mods-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
 }
 
 .mod-card {
     background-color: #161b22;
     border: 1px solid #30363d;
-    border-radius: 8px;
     transition: background-color 0.2s;
-    overflow: hidden;
 }
 
 .mod-card:hover {
@@ -160,87 +136,55 @@ section h2 {
 }
 
 .mod-card a {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 12px 16px;
+    display: block;
+    padding: 24px;
     text-decoration: none;
     color: #c9d1d9;
-    min-height: 56px;
 }
 
 .mod-card .mod-icon {
-    width: 44px;
-    height: 44px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    overflow: hidden;
+    width: 50px;
+    height: 50px;
     background-color: #21262d;
     border: 1px solid #30363d;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.mod-card .mod-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.mod-card .mod-info {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.mod-card .mod-info h3 {
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 700;
     color: #f0f6fc;
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin-bottom: 16px;
 }
 
-.mod-card .mod-info p {
-    font-size: 13px;
+.mod-card h3 {
+    color: #f0f6fc;
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.mod-card p {
     color: #8b949e;
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.mod-card .mod-meta {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-    margin-left: 8px;
+    font-size: 14px;
+    margin-bottom: 12px;
+    line-height: 1.5;
 }
 
 .mod-card .mod-version {
+    display: inline-block;
     background-color: #21262d;
     color: #8b949e;
-    padding: 2px 10px;
+    padding: 2px 12px;
     font-size: 12px;
     font-weight: 500;
-    border-radius: 4px;
-    white-space: nowrap;
+    margin-right: 8px;
 }
 
 .mod-card .mod-status {
-    padding: 2px 10px;
+    display: inline-block;
+    padding: 2px 12px;
     font-size: 12px;
     font-weight: 500;
-    border-radius: 4px;
-    white-space: nowrap;
 }
 
 .mod-card .mod-status.available {
@@ -253,15 +197,16 @@ section h2 {
     color: #ffffff;
 }
 
-.mod-card .badges {
+/* Badges */
+.badges {
     display: flex;
-    gap: 6px;
-    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0 12px 0;
 }
 
-.mod-card .badges img {
-    height: 18px;
-    display: block;
+.badges img {
+    height: 20px;
 }
 
 /* About Section */
@@ -409,7 +354,10 @@ footer {
     text-decoration: underline;
 }
 
+/* ============================================ */
 /* Mod Detail Page Styles */
+/* ============================================ */
+
 .back-link {
     margin-bottom: 24px;
 }
@@ -435,11 +383,9 @@ footer {
 
 .mod-icon-large {
     width: 80px;
-    border-radius: 13px;
     height: 80px;
     background-color: #21262d;
     border: 1px solid #30363d;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -562,6 +508,10 @@ footer {
         justify-content: center;
     }
 
+    .mods-grid {
+        grid-template-columns: 1fr;
+    }
+
     nav ul {
         justify-content: center;
         gap: 16px;
@@ -590,33 +540,7 @@ footer {
     }
 
     .mod-card a {
-        padding: 10px 12px;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    .mod-card .mod-info h3 {
-        font-size: 14px;
-    }
-
-    .mod-card .mod-info p {
-        font-size: 12px;
-    }
-
-    .mod-card .mod-meta {
-        margin-left: 0;
-        flex-wrap: wrap;
-        gap: 4px;
-    }
-
-    .mod-card .mod-version,
-    .mod-card .mod-status {
-        font-size: 10px;
-        padding: 1px 6px;
-    }
-
-    .mod-card .badges img {
-        height: 14px;
+        padding: 16px;
     }
 
     .mod-info h1 {
