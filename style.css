@@ -1,4 +1,7 @@
+/* ============================================ */
 /* Reset and Base */
+/* ============================================ */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,14 +16,19 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ============================================ */
 /* Header */
+/* ============================================ */
+
 header {
     background-color: #161b22;
-    border-bottom: 2px solid #30363d;
+    border-bottom: 1px solid #30363d;
     padding: 30px 20px;
     text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .header-content h1 {
@@ -28,6 +36,7 @@ header {
     font-weight: 700;
     color: #f0f6fc;
     letter-spacing: 2px;
+    transition: color 0.3s ease;
 }
 
 .header-content .subtitle {
@@ -35,13 +44,18 @@ header {
     font-size: 18px;
     margin-top: 5px;
     font-weight: 300;
+    transition: color 0.3s ease;
 }
 
+/* ============================================ */
 /* Navigation */
+/* ============================================ */
+
 nav {
     background-color: #161b22;
     border-bottom: 1px solid #30363d;
     padding: 0 20px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 nav ul {
@@ -51,6 +65,8 @@ nav ul {
     max-width: 1200px;
     margin: 0 auto;
     padding: 12px 0;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 nav ul li a {
@@ -68,11 +84,35 @@ nav ul li a:hover {
 
 nav ul li a.active {
     color: #f0f6fc;
-    border-bottom: 2px solid #f0f6fc;
+    border-bottom: 1px solid #f0f6fc;
     padding-bottom: 6px;
 }
 
+/* ============================================ */
+/* Theme Toggle Button */
+/* ============================================ */
+
+.theme-toggle-btn {
+    background: none;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    padding: 6px 14px;
+    border-radius: 1px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.theme-toggle-btn:hover {
+    background-color: #21262d;
+    border-color: #58a6ff;
+}
+
+/* ============================================ */
 /* Main Content */
+/* ============================================ */
+
 main {
     flex: 1;
     max-width: 1200px;
@@ -91,20 +131,27 @@ section h2 {
     margin-bottom: 12px;
     font-weight: 600;
     letter-spacing: 0.5px;
+    transition: color 0.3s ease;
 }
 
 .section-description {
     color: #8b949e;
     font-size: 16px;
     margin-bottom: 24px;
+    transition: color 0.3s ease;
 }
 
+/* ============================================ */
 /* Stats Section */
+/* ============================================ */
+
 #stats {
-    background-color: #161b22;
-    border: 1px solid #30363d;
-    padding: 24px;
-    margin-bottom: 40px;
+background-color: #161b22;
+border: 1px solid #30363d;
+border-radius: 1px;
+padding: 24px;
+margin-bottom: 40px;
+transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .stats-grid {
@@ -114,90 +161,150 @@ section h2 {
     gap: 16px;
 }
 
+.stat-item {
+    text-align: center;
+    padding: 8px 16px;
+}
+
 .stat-item img {
     height: 28px;
 }
 
-/* Mods Grid */
-.mods-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
+/* ============================================ */
+/* Visitor Counter */
+/* ============================================ */
+
+.visitor-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: #f0f6fc;
+    display: block;
+    transition: color 0.3s ease;
 }
 
-.mod-card {
+.visitor-label {
+    display: block;
+    color: #8b949e;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+/* ============================================ */
+/* Search Bar */
+/* ============================================ */
+
+#mod-search {
+width: 100%;
+max-width: 400px;
+padding: 12px 16px;
+background-color: #0d1117;
+border: 1px solid #30363d;
+border-radius: 1px;
+color: #c9d1d9;
+font-size: 16px;
+font-family: 'Inter', sans-serif;
+transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, color 0.3s ease;
+margin-bottom: 20px;
+}
+
+#mod-search:focus {
+outline: none;
+border-color: #58a6ff;
+box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
+}
+
+#mod-search::placeholder {
+color: #484f58;
+}
+
+/* ============================================ */
+/* Mods List View */
+/* ============================================ */
+
+.mods-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mod-list-item {
     background-color: #161b22;
     border: 1px solid #30363d;
-    transition: background-color 0.2s;
+    border-radius: 1px;
+    transition: background-color 0.2s, border-color 0.2s;
 }
 
-.mod-card:hover {
+.mod-list-item:hover {
     background-color: #1c2128;
+    border-color: #58a6ff;
 }
 
-.mod-card a {
-    display: block;
-    padding: 24px;
+.mod-list-item a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 20px;
     text-decoration: none;
     color: #c9d1d9;
 }
 
-.mod-card .mod-icon {
-    width: 50px;
-    height: 50px;
-    background-color: #21262d;
+.mod-list-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
     border: 1px solid #30363d;
+    border-radius: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    font-weight: 700;
-    color: #f0f6fc;
-    margin-bottom: 16px;
+    overflow: hidden;
+    background-color: #21262d;
+    transition: border-color 0.3s ease;
 }
 
-.mod-card h3 {
+.mod-list-icon img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ============================================ */
+/* Mod Info */
+/* ============================================ */
+
+.mod-list-info {
+    flex: 1;
+}
+
+.mod-list-info h3 {
     color: #f0f6fc;
-    font-size: 20px;
-    margin-bottom: 8px;
+    font-size: 18px;
     font-weight: 600;
+    margin-bottom: 4px;
+    transition: color 0.3s ease;
 }
 
-.mod-card p {
+.mod-list-info p {
     color: #8b949e;
     font-size: 14px;
-    margin-bottom: 12px;
-    line-height: 1.5;
+    margin: 0 0 8px 0;
+    transition: color 0.3s ease;
 }
 
-.mod-card .mod-version {
-    display: inline-block;
-    background-color: #21262d;
-    color: #8b949e;
-    padding: 2px 12px;
-    font-size: 12px;
-    font-weight: 500;
-    margin-right: 8px;
+.mod-list-info .badges {
+    margin: 0;
 }
 
-.mod-card .mod-status {
-    display: inline-block;
-    padding: 2px 12px;
-    font-size: 12px;
-    font-weight: 500;
+.mod-list-status {
+    flex-shrink: 0;
+    text-align: right;
 }
 
-.mod-card .mod-status.available {
-    background-color: #238636;
-    color: #ffffff;
-}
-
-.mod-card .mod-status.coming {
-    background-color: #1f6feb;
-    color: #ffffff;
-}
-
+/* ============================================ */
 /* Badges */
+/* ============================================ */
+
 .badges {
     display: flex;
     flex-wrap: wrap;
@@ -209,21 +316,53 @@ section h2 {
     height: 20px;
 }
 
+/* ============================================ */
+/* Mod Status */
+/* ============================================ */
+
+.mod-status {
+    display: inline-block;
+    padding: 2px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 1px;
+}
+
+.mod-status.available {
+    background-color: #0d4425;
+    color: #3fb950;
+    border: 1px solid #238636;
+}
+
+.mod-status.coming {
+    background-color: #1f3a6b;
+    color: #58a6ff;
+    border: 1px solid #1f6feb;
+}
+
+/* ============================================ */
 /* About Section */
+/* ============================================ */
+
 #about {
-    background-color: #161b22;
-    border: 1px solid #30363d;
-    padding: 32px;
+background-color: #161b22;
+border: 1px solid #30363d;
+border-radius: 1px;
+padding: 32px;
+transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 #about p {
-    color: #8b949e;
-    margin-bottom: 12px;
-    font-size: 16px;
+color: #8b949e;
+margin-bottom: 12px;
+font-size: 16px;
+transition: color 0.3s ease;
 }
 
 #about p:last-of-type {
-    margin-bottom: 0;
+margin-bottom: 0;
 }
 
 .about-list {
@@ -232,21 +371,27 @@ section h2 {
     margin-top: 8px;
     font-size: 16px;
     line-height: 1.8;
+    transition: color 0.3s ease;
 }
 
 .about-list li {
     margin-bottom: 4px;
 }
 
+/* ============================================ */
 /* Contributors Section */
+/* ============================================ */
+
 #contributors {
-    background-color: #161b22;
-    border: 1px solid #30363d;
-    padding: 32px;
+background-color: #161b22;
+border: 1px solid #30363d;
+border-radius: 1px;
+padding: 32px;
+transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 #contributors h2 {
-    margin-bottom: 8px;
+margin-bottom: 8px;
 }
 
 .contributors-grid {
@@ -260,6 +405,7 @@ section h2 {
     text-align: center;
     background-color: #21262d;
     border: 1px solid #30363d;
+    border-radius: 1px;
     padding: 12px;
     transition: background-color 0.2s;
 }
@@ -277,6 +423,7 @@ section h2 {
     display: block;
     margin: 0 auto 8px;
     border: 1px solid #30363d;
+    border-radius: 50%;
 }
 
 .contributor-card span {
@@ -291,16 +438,22 @@ section h2 {
     font-size: 12px;
 }
 
+/* ============================================ */
 /* FAQ Section */
+/* ============================================ */
+
 #faq {
-    background-color: #161b22;
-    border: 1px solid #30363d;
-    padding: 32px;
+background-color: #161b22;
+border: 1px solid #30363d;
+border-radius: 1px;
+padding: 32px;
+transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .faq-item {
     padding: 16px 0;
     border-bottom: 1px solid #30363d;
+    transition: border-color 0.3s ease;
 }
 
 .faq-item:last-child {
@@ -311,11 +464,13 @@ section h2 {
     color: #f0f6fc;
     font-size: 18px;
     margin-bottom: 6px;
+    transition: color 0.3s ease;
 }
 
 .faq-item p {
     color: #8b949e;
     font-size: 15px;
+    transition: color 0.3s ease;
 }
 
 .faq-item a {
@@ -327,18 +482,23 @@ section h2 {
     text-decoration: underline;
 }
 
+/* ============================================ */
 /* Footer */
+/* ============================================ */
+
 footer {
     background-color: #161b22;
     border-top: 1px solid #30363d;
     padding: 24px 20px;
     text-align: center;
     margin-top: auto;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .footer-content p {
     color: #8b949e;
     font-size: 14px;
+    transition: color 0.3s ease;
 }
 
 .footer-content p:first-child {
@@ -355,182 +515,231 @@ footer {
 }
 
 /* ============================================ */
-/* Mod Detail Page Styles */
+/* Back to Top Button */
 /* ============================================ */
 
-.back-link {
-    margin-bottom: 24px;
+#back-to-top {
+display: none;
+position: fixed;
+bottom: 30px;
+right: 30px;
+background-color: #238636;
+color: #ffffff;
+border: none;
+border-radius: 1px;
+padding: 12px 18px;
+font-size: 16px;
+font-weight: 600;
+font-family: 'Inter', sans-serif;
+cursor: pointer;
+transition: background-color 0.25s ease, transform 0.2s ease;
+z-index: 1000;
 }
 
-.back-link a {
-    color: #8b949e;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.2s;
+#back-to-top:hover {
+background-color: #2ea043;
+transform: translateY(-2px);
 }
 
-.back-link a:hover {
-    color: #f0f6fc;
+#back-to-top:active {
+transform: scale(0.95);
 }
 
-.mod-header {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 40px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #30363d;
+/* ============================================ */
+/* Scrollbar Styling */
+/* ============================================ */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
 }
 
-.mod-icon-large {
-    width: 80px;
-    height: 80px;
-    background-color: #21262d;
-    border: 1px solid #30363d;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 36px;
-    font-weight: 700;
-    color: #f0f6fc;
-    flex-shrink: 0;
+::-webkit-scrollbar-track {
+    background-color: #0d1117;
 }
 
-.mod-info {
-    flex: 1;
+::-webkit-scrollbar-thumb {
+    background-color: #30363d;
+    border-radius: 1px;
 }
 
-.mod-info h1 {
-    font-size: 32px;
-    color: #f0f6fc;
-    margin-bottom: 6px;
-    font-weight: 700;
+::-webkit-scrollbar-thumb:hover {
+    background-color: #484f58;
 }
 
-.mod-info .mod-tagline {
-    font-size: 18px;
-    color: #8b949e;
-    margin-bottom: 12px;
+/* ============================================ */
+/* Light Theme */
+/* ============================================ */
+
+body.light-theme {
+    background-color: #f6f8fa;
+    color: #24292f;
 }
 
-.mod-meta {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-top: 8px;
+body.light-theme header,
+body.light-theme nav,
+body.light-theme footer,
+body.light-theme #stats,
+body.light-theme #about,
+body.light-theme #contributors,
+body.light-theme #faq,
+body.light-theme .mod-list-item {
+    background-color: #ffffff;
+    border-color: #d0d7de;
 }
 
-.mod-meta .meta-item {
-    font-size: 14px;
-    color: #8b949e;
+body.light-theme .header-content h1 {
+    color: #24292f;
 }
 
-.mod-meta .meta-item strong {
-    color: #c9d1d9;
+body.light-theme .header-content .subtitle,
+body.light-theme .section-description,
+body.light-theme .mod-list-info p,
+body.light-theme #about p,
+body.light-theme .faq-item p,
+body.light-theme .footer-content p {
+    color: #57606a;
 }
 
-.mod-meta .meta-item .available {
-    color: #3fb950;
+body.light-theme section h2,
+body.light-theme .mod-list-info h3,
+body.light-theme .faq-item h3 {
+    color: #24292f;
 }
 
-.mod-content h2 {
-    font-size: 22px;
-    color: #f0f6fc;
-    margin-top: 30px;
-    margin-bottom: 12px;
-    font-weight: 600;
+body.light-theme nav ul li a {
+    color: #57606a;
 }
 
-.mod-content h2:first-of-type {
-    margin-top: 0;
+body.light-theme nav ul li a:hover,
+body.light-theme nav ul li a.active {
+    color: #24292f;
 }
 
-.mod-content p {
-    color: #c9d1d9;
-    margin-bottom: 16px;
-    font-size: 16px;
-    line-height: 1.7;
+body.light-theme .mod-list-icon {
+    background-color: #f6f8fa;
+    border-color: #d0d7de;
 }
 
-.mod-content ul,
-.mod-content ol {
-    color: #c9d1d9;
-    padding-left: 24px;
-    margin-bottom: 16px;
-    font-size: 16px;
-    line-height: 1.8;
+body.light-theme #mod-search {
+    background-color: #ffffff;
+    border-color: #d0d7de;
+    color: #24292f;
 }
 
-.mod-content li {
-    margin-bottom: 4px;
+body.light-theme #mod-search:focus {
+    border-color: #0969da;
+    box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.15);
 }
 
-.download-links {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-top: 8px;
+body.light-theme .mod-list-item:hover {
+    background-color: #f6f8fa;
 }
 
-.download-links a {
-    display: inline-block;
-    padding: 12px 28px;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: opacity 0.2s;
+body.light-theme .mod-status.available {
+    background-color: #dafbe1;
+    color: #116329;
+    border-color: #238636;
 }
 
-.download-links a:hover {
-    opacity: 0.85;
+body.light-theme .mod-status.coming {
+    background-color: #ddf4ff;
+    color: #0550ae;
+    border-color: #1f6feb;
 }
 
-.download-btn {
-    background-color: #238636;
-    color: #ffffff;
-    border: none;
+body.light-theme .theme-toggle-btn {
+    border-color: #d0d7de;
+    color: #24292f;
 }
 
-.github-btn {
-    background-color: #21262d;
-    color: #f0f6fc;
-    border: 1px solid #30363d;
+body.light-theme .theme-toggle-btn:hover {
+    background-color: #f6f8fa;
+    border-color: #0969da;
 }
 
-/* Responsive */
+body.light-theme .visitor-number {
+    color: #24292f;
+}
+
+body.light-theme .visitor-label {
+    color: #57606a;
+}
+
+body.light-theme .contributor-card {
+    background-color: #f6f8fa;
+    border-color: #d0d7de;
+}
+
+body.light-theme .contributor-card:hover {
+    background-color: #eaeef2;
+}
+
+body.light-theme #back-to-top {
+    background-color: #0969da;
+}
+
+body.light-theme #back-to-top:hover {
+    background-color: #0550ae;
+}
+
+body.light-theme .faq-item {
+    border-bottom-color: #d0d7de;
+}
+
+body.light-theme .stat-item img {
+    filter: invert(0);
+}
+
+/* ============================================ */
+/* Responsive Design */
+/* ============================================ */
+
 @media (max-width: 768px) {
-    .mod-header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    header .header-content h1 {
+        font-size: 30px;
     }
 
-    .mod-meta {
-        justify-content: center;
-    }
-
-    .mods-grid {
-        grid-template-columns: 1fr;
+    .header-content .subtitle {
+        font-size: 16px;
     }
 
     nav ul {
         justify-content: center;
         gap: 16px;
+    }
+
+    nav ul li:last-child {
+        margin-left: 0 !important;
+        width: 100%;
+        text-align: center;
+        margin-top: 4px;
+    }
+
+    .mod-list-item a {
         flex-wrap: wrap;
+        gap: 12px;
     }
 
-    .header-content h1 {
-        font-size: 30px;
+    .mod-list-status {
+        text-align: left;
+        width: 100%;
+        padding-left: 68px;
     }
 
-    .download-links {
-        justify-content: center;
+    .stats-grid {
+        gap: 12px;
     }
 
     #about,
     #contributors,
     #faq,
     #stats {
-        padding: 20px;
+    padding: 20px;
+    }
+
+    section h2 {
+        font-size: 22px;
     }
 }
 
@@ -539,21 +748,77 @@ footer {
         padding: 20px 12px;
     }
 
-    .mod-card a {
-        padding: 16px;
+    .mod-list-item a {
+        padding: 12px 16px;
     }
 
-    .mod-info h1 {
-        font-size: 26px;
+    .mod-list-info h3 {
+        font-size: 16px;
     }
 
-    .mod-icon-large {
-        width: 60px;
-        height: 60px;
-        font-size: 28px;
+    .mod-list-info p {
+        font-size: 13px;
     }
 
-    .contributors-grid {
-        justify-content: center;
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
     }
+
+    .stat-item {
+        padding: 4px 8px;
+    }
+
+    .stat-item img {
+        height: 22px;
+    }
+
+    .visitor-number {
+        font-size: 22px;
+    }
+
+    #mod-search {
+    max-width: 100%;
+    font-size: 14px;
+    padding: 10px 14px;
+    }
+
+    .header-content h1 {
+        font-size: 24px;
+    }
+
+    section h2 {
+        font-size: 20px;
+    }
+
+    .mod-list-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .mod-list-icon img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ============================================ */
+/* Mod Icons - Border Radius 13px */
+/* ============================================ */
+
+.mod-list-icon {
+    border-radius: 13px;
+}
+
+.mod-list-icon img {
+    border-radius: 13px;
+}
+
+/* ============================================ */
+/* Contributor Images - Border Radius 1px */
+/* ============================================ */
+
+.contributor-card img {
+    border-radius: 1px !important;
 }
