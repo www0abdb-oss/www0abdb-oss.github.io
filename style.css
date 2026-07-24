@@ -146,12 +146,12 @@ section h2 {
 /* ============================================ */
 
 #stats {
-background-color: #161b22;
-border: 1px solid #30363d;
-border-radius: 1px;
-padding: 24px;
-margin-bottom: 40px;
-transition: background-color 0.3s ease, border-color 0.3s ease;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 1px;
+    padding: 24px;
+    margin-bottom: 40px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .stats-grid {
@@ -171,50 +171,31 @@ transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ============================================ */
-/* Visitor Counter */
-/* ============================================ */
-
-.visitor-number {
-    font-size: 28px;
-    font-weight: 700;
-    color: #f0f6fc;
-    display: block;
-    transition: color 0.3s ease;
-}
-
-.visitor-label {
-    display: block;
-    color: #8b949e;
-    font-size: 14px;
-    transition: color 0.3s ease;
-}
-
-/* ============================================ */
 /* Search Bar */
 /* ============================================ */
 
 #mod-search {
-width: 100%;
-max-width: 400px;
-padding: 12px 16px;
-background-color: #0d1117;
-border: 1px solid #30363d;
-border-radius: 1px;
-color: #c9d1d9;
-font-size: 16px;
-font-family: 'Inter', sans-serif;
-transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, color 0.3s ease;
-margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 16px;
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 1px;
+    color: #c9d1d9;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 20px;
 }
 
 #mod-search:focus {
-outline: none;
-border-color: #58a6ff;
-box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
+    outline: none;
+    border-color: #58a6ff;
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
 }
 
 #mod-search::placeholder {
-color: #484f58;
+    color: #484f58;
 }
 
 /* ============================================ */
@@ -252,26 +233,22 @@ color: #484f58;
     flex-shrink: 0;
     width: 48px;
     height: 48px;
+    background-color: #21262d;
     border: 1px solid #30363d;
-    border-radius: 1px;
+    border-radius: 13px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: #21262d;
-    transition: border-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .mod-list-icon img {
     width: 48px;
     height: 48px;
     object-fit: cover;
-    display: block;
+    border-radius: 13px;
 }
-
-/* ============================================ */
-/* Mod Info */
-/* ============================================ */
 
 .mod-list-info {
     flex: 1;
@@ -347,22 +324,18 @@ color: #484f58;
 /* ============================================ */
 
 #about {
-background-color: #161b22;
-border: 1px solid #30363d;
-border-radius: 1px;
-padding: 32px;
-transition: background-color 0.3s ease, border-color 0.3s ease;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 1px;
+    padding: 32px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 #about p {
-color: #8b949e;
-margin-bottom: 12px;
-font-size: 16px;
-transition: color 0.3s ease;
-}
-
-#about p:last-of-type {
-margin-bottom: 0;
+    color: #8b949e;
+    margin-bottom: 12px;
+    font-size: 16px;
+    transition: color 0.3s ease;
 }
 
 .about-list {
@@ -383,15 +356,11 @@ margin-bottom: 0;
 /* ============================================ */
 
 #contributors {
-background-color: #161b22;
-border: 1px solid #30363d;
-border-radius: 1px;
-padding: 32px;
-transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-#contributors h2 {
-margin-bottom: 8px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 1px;
+    padding: 32px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .contributors-grid {
@@ -423,7 +392,7 @@ margin-bottom: 8px;
     display: block;
     margin: 0 auto 8px;
     border: 1px solid #30363d;
-    border-radius: 50%;
+    border-radius: 1px;
 }
 
 .contributor-card span {
@@ -443,11 +412,11 @@ margin-bottom: 8px;
 /* ============================================ */
 
 #faq {
-background-color: #161b22;
-border: 1px solid #30363d;
-border-radius: 1px;
-padding: 32px;
-transition: background-color 0.3s ease, border-color 0.3s ease;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 1px;
+    padding: 32px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .faq-item {
@@ -519,30 +488,30 @@ footer {
 /* ============================================ */
 
 #back-to-top {
-display: none;
-position: fixed;
-bottom: 30px;
-right: 30px;
-background-color: #238636;
-color: #ffffff;
-border: none;
-border-radius: 1px;
-padding: 12px 18px;
-font-size: 16px;
-font-weight: 600;
-font-family: 'Inter', sans-serif;
-cursor: pointer;
-transition: background-color 0.25s ease, transform 0.2s ease;
-z-index: 1000;
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #238636;
+    color: #ffffff;
+    border: none;
+    border-radius: 1px;
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+    z-index: 1000;
 }
 
 #back-to-top:hover {
-background-color: #2ea043;
-transform: translateY(-2px);
+    background-color: #2ea043;
+    transform: translateY(-2px);
 }
 
 #back-to-top:active {
-transform: scale(0.95);
+    transform: scale(0.95);
 }
 
 /* ============================================ */
@@ -568,6 +537,210 @@ transform: scale(0.95);
 }
 
 /* ============================================ */
+/* Mod Detail Page */
+/* ============================================ */
+
+.mod-detail {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 1px;
+    padding: 32px;
+    margin-bottom: 40px;
+}
+
+.back-link {
+    margin-bottom: 24px;
+}
+
+.back-link a {
+    color: #8b949e;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-link a:hover {
+    color: #f0f6fc;
+}
+
+.mod-header {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #30363d;
+}
+
+.mod-icon-large {
+    width: 80px;
+    height: 80px;
+    background-color: #21262d;
+    border: 1px solid #30363d;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.mod-icon-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 13px;
+}
+
+.mod-info {
+    flex: 1;
+}
+
+.mod-info h1 {
+    font-size: 32px;
+    color: #f0f6fc;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.mod-tagline {
+    font-size: 18px;
+    color: #8b949e;
+    margin-bottom: 12px;
+}
+
+.mod-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.meta-item {
+    font-size: 14px;
+    color: #8b949e;
+}
+
+.meta-item strong {
+    color: #c9d1d9;
+}
+
+.meta-item .available {
+    color: #3fb950;
+}
+
+.mod-content h2 {
+    font-size: 22px;
+    color: #f0f6fc;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.mod-content p {
+    color: #c9d1d9;
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.mod-content ul,
+.mod-content ol {
+    color: #c9d1d9;
+    padding-left: 24px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.mod-content li {
+    margin-bottom: 4px;
+}
+
+.mod-content a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.mod-content a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================ */
+/* Download Buttons - FIX */
+/* ============================================ */
+
+.download-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.download-btn,
+.github-btn {
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.download-btn:hover,
+.github-btn:hover {
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.download-btn:focus,
+.github-btn:focus {
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.download-btn:active,
+.github-btn:active {
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #238636;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 1px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.download-btn:hover {
+    background-color: #2ea043;
+    color: #ffffff !important;
+}
+
+.github-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #21262d;
+    color: #f0f6fc !important;
+    border: 1px solid #30363d !important;
+    border-radius: 1px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.github-btn:hover {
+    background-color: #30363d;
+    color: #f0f6fc !important;
+}
+
+/* ============================================ */
 /* Light Theme */
 /* ============================================ */
 
@@ -583,7 +756,8 @@ body.light-theme #stats,
 body.light-theme #about,
 body.light-theme #contributors,
 body.light-theme #faq,
-body.light-theme .mod-list-item {
+body.light-theme .mod-list-item,
+body.light-theme .mod-detail {
     background-color: #ffffff;
     border-color: #d0d7de;
 }
@@ -597,13 +771,18 @@ body.light-theme .section-description,
 body.light-theme .mod-list-info p,
 body.light-theme #about p,
 body.light-theme .faq-item p,
-body.light-theme .footer-content p {
+body.light-theme .footer-content p,
+body.light-theme .mod-tagline,
+body.light-theme .meta-item,
+body.light-theme .back-link a {
     color: #57606a;
 }
 
 body.light-theme section h2,
 body.light-theme .mod-list-info h3,
-body.light-theme .faq-item h3 {
+body.light-theme .faq-item h3,
+body.light-theme .mod-info h1,
+body.light-theme .mod-content h2 {
     color: #24292f;
 }
 
@@ -616,7 +795,8 @@ body.light-theme nav ul li a.active {
     color: #24292f;
 }
 
-body.light-theme .mod-list-icon {
+body.light-theme .mod-list-icon,
+body.light-theme .mod-icon-large {
     background-color: #f6f8fa;
     border-color: #d0d7de;
 }
@@ -658,14 +838,6 @@ body.light-theme .theme-toggle-btn:hover {
     border-color: #0969da;
 }
 
-body.light-theme .visitor-number {
-    color: #24292f;
-}
-
-body.light-theme .visitor-label {
-    color: #57606a;
-}
-
 body.light-theme .contributor-card {
     background-color: #f6f8fa;
     border-color: #d0d7de;
@@ -687,8 +859,37 @@ body.light-theme .faq-item {
     border-bottom-color: #d0d7de;
 }
 
-body.light-theme .stat-item img {
-    filter: invert(0);
+body.light-theme .mod-header {
+    border-bottom-color: #d0d7de;
+}
+
+body.light-theme .mod-content a {
+    color: #0969da;
+}
+
+body.light-theme .github-btn {
+    background-color: #f6f8fa;
+    color: #24292f !important;
+    border-color: #d0d7de !important;
+}
+
+body.light-theme .github-btn:hover {
+    background-color: #eaeef2;
+    color: #24292f !important;
+}
+
+body.light-theme .meta-item strong {
+    color: #24292f;
+}
+
+body.light-theme .mod-content p,
+body.light-theme .mod-content ul,
+body.light-theme .mod-content ol {
+    color: #24292f;
+}
+
+body.light-theme .back-link a:hover {
+    color: #24292f;
 }
 
 /* ============================================ */
@@ -735,11 +936,25 @@ body.light-theme .stat-item img {
     #contributors,
     #faq,
     #stats {
-    padding: 20px;
+        padding: 20px;
     }
 
     section h2 {
         font-size: 22px;
+    }
+
+    .mod-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .mod-meta {
+        justify-content: center;
+    }
+
+    .download-links {
+        justify-content: center;
     }
 }
 
@@ -774,14 +989,10 @@ body.light-theme .stat-item img {
         height: 22px;
     }
 
-    .visitor-number {
-        font-size: 22px;
-    }
-
     #mod-search {
-    max-width: 100%;
-    font-size: 14px;
-    padding: 10px 14px;
+        max-width: 100%;
+        font-size: 14px;
+        padding: 10px 14px;
     }
 
     .header-content h1 {
@@ -801,24 +1012,22 @@ body.light-theme .stat-item img {
         width: 40px;
         height: 40px;
     }
-}
 
-/* ============================================ */
-/* Mod Icons - Border Radius 13px */
-/* ============================================ */
+    .mod-detail {
+        padding: 20px 16px;
+    }
 
-.mod-list-icon {
-    border-radius: 13px;
-}
+    .mod-info h1 {
+        font-size: 26px;
+    }
 
-.mod-list-icon img {
-    border-radius: 13px;
-}
+    .mod-icon-large {
+        width: 60px;
+        height: 60px;
+    }
 
-/* ============================================ */
-/* Contributor Images - Border Radius 1px */
-/* ============================================ */
-
-.contributor-card img {
-    border-radius: 1px !important;
+    .mod-icon-large img {
+        width: 60px;
+        height: 60px;
+    }
 }
